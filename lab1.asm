@@ -1,0 +1,10 @@
+start:
+	MOV P1,#01111111B
+	MOV P1,#0BFH
+	MOV P1,#0DFH
+	MOV P1,#0EFH
+	MOV P1,#0F7H
+	MOV P1,#0FBH
+	MOV P1,#0FDH
+	MOV P1,#0FEH
+	JMP start	; and repeat
