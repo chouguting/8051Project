@@ -1,0 +1,26 @@
+ORG		0H          	;系統開機的執行位址為0
+		JMP		MAIN
+		ORG		30H
+MAIN:
+		MOV	P1,#7FH
+		MOV	P1,#3FH
+		MOV	P1,#1FH
+		MOV	P1,#0FH
+		MOV	P1,#07H
+		MOV	P1,#03H
+		MOV	P1,#01H
+		MOV	P1,#00H
+		MOV	P1,#0FFH
+
+		MOV	P1,#0FEH
+		MOV	P1,#0FCH
+		MOV	P1,#0F8H
+		MOV	P1,#0F0H
+		MOV	P1,#0E0H
+		MOV	P1,#0C0H
+		MOV	P1,#080H
+		MOV	P1,#0H
+		MOV	P1,#0FFH
+
+		JMP		MAIN
+		END
