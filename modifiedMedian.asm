@@ -1,0 +1,72 @@
+ORG	0H			;系統開機的執行位址為0
+		JMP	INIT
+LENGTH	EQU	40H			;length
+ARRAY	EQU	41H 
+		ORG	30H          
+INIT:           			;填入起始的資料
+	MOV 40H, #9;
+	MOV 41H, #12;
+	MOV 42H, #13;
+	MOV 43H, #15;
+	MOV 44H, #22;
+	MOV 45H, #37;
+	MOV 46H, #48;
+	MOV 47H, #59;
+	MOV 48H, #158;
+	MOV 49H, #160;
+MAIN:               	;主程式起始位址
+	MOV R7, LENGTH
+	MOV R6, #ARRAY
+	CALL MEDIAN
+	JMP	$			;在此檢查回傳值 R5
+MEDIAN:
+	MOV 50H,R6
+	MOV 51H,R7
+	JMP CHECKSORT
+DOCAL:
+	MOV A,51H
+	RRC A
+	JC ODD
+EVEN:
+	ADD A,50H
+	MOV R0,A
+	MOV A,@R0
+	DEC R0
+	ADD A,@R0
+	CLR C
+	RRC A	
+	JC ADDONE
+	CONTINUE:
+		MOV R5,A
+		JMP ENDING
+ODD:
+	ADD A,50H
+	MOV R0,A
+	MOV A,@R0
+	MOV R5,A
+ENDING:
+	RET
+
+ADDONE:
+	INC A
+	JMP CONTINUE
+	
+CHECKSORT:
+	MOV R4,51H
+	DEC R4
+	MOV R0,50H
+	loop:
+		MOV A,R0
+		INC A
+		MOV R1,A
+		MOV A,@R1
+		SUBB A,@R0
+		JC NOTSORTED
+		INC R0
+		DJNZ R4,loop
+	JMP DOCAL
+NOTSORTED:
+	MOV R5,#0H
+	RET			
+	END
+
