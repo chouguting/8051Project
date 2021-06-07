@@ -1,9 +1,9 @@
-ORG	0H			;¨t²Î¶}¾÷ªº°õ¦æ¦ì§}¬°0
+ORG	0H			;ç³»çµ±é–‹æ©Ÿçš„åŸ·è¡Œä½å€ç‚º0
 		JMP	INIT
 LENGTH	EQU	40H			;length
 ARRAY	EQU	41H 
 		ORG	30H          
-INIT:           			;¶ñ¤J°_©lªº¸ê®Æ
+INIT:           			;å¡«å…¥èµ·å§‹çš„è³‡æ–™
 	MOV 40H, #9;
 	MOV 41H, #12;
 	MOV 42H, #13;
@@ -14,11 +14,11 @@ INIT:           			;¶ñ¤J°_©lªº¸ê®Æ
 	MOV 47H, #59;
 	MOV 48H, #158;
 	MOV 49H, #160;
-MAIN:               	;¥Dµ{¦¡°_©l¦ì§}
+MAIN:               	;ä¸»ç¨‹å¼èµ·å§‹ä½å€
 	MOV R7, LENGTH
 	MOV R6, #ARRAY
 	CALL MEDIAN
-	JMP	$			;¦b¦¹ÀË¬d¦^¶Ç­È R5
+	JMP	$			;åœ¨æ­¤æª¢æŸ¥å›žå‚³å€¼ R5
 MEDIAN:
 	MOV 50H,R6
 	MOV 51H,R7

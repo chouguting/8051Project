@@ -7,11 +7,11 @@ timer0ISR:
 	MOV TH0,R2
 	RETI
 
-ORG 0030H ;¥Dµ{¦¡¶}©l¦ì¸m
+ORG 0030H ;ä¸»ç¨‹å¼é–‹å§‹ä½ç½®
 main:
 	MOV SP,#40H
 	MOV IE,#82H
-	MOV R2,#9CH ;ªì©lÀW²v
+	MOV R2,#9CH ;åˆå§‹é »çŽ‡
 	MOV TMOD,#02H
 	MOV TH0,R2
 	MOV TL0,R2
@@ -51,19 +51,19 @@ gotKey:
 
 buttonEvent:
 
-	;¤»¸¹«ö¶s
+	;å…­è™ŸæŒ‰éˆ•
 	MOV A,R0
 	CLR C
 	SUBB A,#00H
 	JZ increaseFrequency
 
-	;¤­¸¹«ö¶s
+	;äº”è™ŸæŒ‰éˆ•
 	MOV A,R0
 	CLR C
 	SUBB A,#01H
 	JZ  stopAndWait
 
-	;¥|¸¹«ö¶s
+	;å››è™ŸæŒ‰éˆ•
 	MOV A,R0
 	CLR C
 	SUBB A,#02H

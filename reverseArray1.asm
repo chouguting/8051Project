@@ -1,10 +1,10 @@
-;¥»µ{¦¡¬°Â²©öª© or¶i¶¥ª© or ¨ä¥L(½ÐÂ²³æ»¡©ú)
-ORG 0H ;¨t²Î¶}¾÷ªº°õ¦æ¦ì§}¬°0
+;æœ¬ç¨‹å¼ç‚ºç°¡æ˜“ç‰ˆ oré€²éšŽç‰ˆ or å…¶ä»–(è«‹ç°¡å–®èªªæ˜Ž)
+ORG 0H ;ç³»çµ±é–‹æ©Ÿçš„åŸ·è¡Œä½å€ç‚º0
 JMP INIT
 LENGTH EQU 40H ;length
 ARRAY EQU 41H
 ORG 30H
-INIT: ;¶ñ¤J°_©lªº¸ê®Æ
+INIT: ;å¡«å…¥èµ·å§‹çš„è³‡æ–™
 	MOV 40H, #7;
 	MOV 41H, #'K';
 	MOV 42H, #'e';
@@ -13,11 +13,11 @@ INIT: ;¶ñ¤J°_©lªº¸ê®Æ
 	MOV 45H, #'A';
 	MOV 46H, #'5';
 	MOV 47H, #'1';
-MAIN: ;¨Ï¥ÎªÌµ{¦¡°_©l¦ì§}
+MAIN: ;ä½¿ç”¨è€…ç¨‹å¼èµ·å§‹ä½å€
 	MOV A,LENGTH
 	MOV B,#2
 	DIV AB
-	MOV R2,A ;R2¦s¦¸¼Æ
+	MOV R2,A ;R2å­˜æ¬¡æ•¸
 	MOV R1,#ARRAY
 	MOV A,#ARRAY
 	ADD A, LENGTH
@@ -38,4 +38,4 @@ MAIN: ;¨Ï¥ÎªÌµ{¦¡°_©l¦ì§}
 
 
 	
-JMP $ ;¸õ¦^¦Û¤v¡AµL­­°j°é
+JMP $ ;è·³å›žè‡ªå·±ï¼Œç„¡é™è¿´åœˆ

@@ -104,82 +104,82 @@ MAIN:
 		mov R2,#12
 		mov R1,00H
 	
-		mov  A,R1	;§âR1ªº­Èµ¹A
-		CLR C ;²M±¼carry
-		subb A,#0H ;§PÂ_¬O¤£¬O#(0¸¹)«öÁä
-		JZ change  ;¬O´N¸õ
+		mov  A,R1	;æŠŠR1çš„å€¼çµ¦A
+		CLR C ;æ¸…æ‰carry
+		subb A,#0H ;åˆ¤æ–·æ˜¯ä¸æ˜¯#(0è™Ÿ)æŒ‰éµ
+		JZ change  ;æ˜¯å°±è·³
 		DEC R2
 
 		mov  A,R1
 		CLR C
-		subb A,#01H ;§PÂ_¬O¤£¬O0(1¸¹)«öÁä
+		subb A,#01H ;åˆ¤æ–·æ˜¯ä¸æ˜¯0(1è™Ÿ)æŒ‰éµ
 		JZ change
 		DEC R2
 
 		mov  A,R1
 		CLR C
-		subb A,#02H ;§PÂ_¬O¤£¬O*(2¸¹)«öÁä
+		subb A,#02H ;åˆ¤æ–·æ˜¯ä¸æ˜¯*(2è™Ÿ)æŒ‰éµ
 		JZ change
 		DEC R2
 
 		mov  A,R1
 		CLR C
-		subb A,#03H ;§PÂ_¬O¤£¬O9(3¸¹)«öÁä
+		subb A,#03H ;åˆ¤æ–·æ˜¯ä¸æ˜¯9(3è™Ÿ)æŒ‰éµ
 		JZ change
 		DEC R2
 
 		mov  A,R1
 		CLR C
-		subb A,#04H ;§PÂ_¬O¤£¬O8(4¸¹)«öÁä
+		subb A,#04H ;åˆ¤æ–·æ˜¯ä¸æ˜¯8(4è™Ÿ)æŒ‰éµ
 		JZ change
 		DEC R2
 
 		mov  A,R1
 		CLR C
-		subb A,#05H ;§PÂ_¬O¤£¬O7(5¸¹)«öÁä
+		subb A,#05H ;åˆ¤æ–·æ˜¯ä¸æ˜¯7(5è™Ÿ)æŒ‰éµ
 		JZ change
 		DEC R2
 
 		mov  A,R1
 		CLR C
-		subb A,#06H ;§PÂ_¬O¤£¬O6(6¸¹)«öÁä
+		subb A,#06H ;åˆ¤æ–·æ˜¯ä¸æ˜¯6(6è™Ÿ)æŒ‰éµ
 		JZ change
 		DEC R2
 
 		mov  A,R1
 		CLR C
-		subb A,#07H ;§PÂ_¬O¤£¬O5(7¸¹)«öÁä
+		subb A,#07H ;åˆ¤æ–·æ˜¯ä¸æ˜¯5(7è™Ÿ)æŒ‰éµ
 		JZ change
 		DEC R2
 
 		mov  A,R1
 		CLR C
-		subb A,#08H ;§PÂ_¬O¤£¬O4(8¸¹)«öÁä
+		subb A,#08H ;åˆ¤æ–·æ˜¯ä¸æ˜¯4(8è™Ÿ)æŒ‰éµ
 		JZ change
 		DEC R2
 
 		mov  A,R1
 		CLR C
-		subb A,#09H ;§PÂ_¬O¤£¬O3(9¸¹)«öÁä
+		subb A,#09H ;åˆ¤æ–·æ˜¯ä¸æ˜¯3(9è™Ÿ)æŒ‰éµ
 		JZ change
 		DEC R2
 
 		mov  A,R1
 		CLR C
-		subb A,#0AH ;§PÂ_¬O¤£¬O2(10¸¹)«öÁä
+		subb A,#0AH ;åˆ¤æ–·æ˜¯ä¸æ˜¯2(10è™Ÿ)æŒ‰éµ
 		JZ change
 		DEC R2
 
 		mov  A,R1
 		CLR C
-		subb A,#0BH ;§PÂ_¬O¤£¬O1(11¸¹)«öÁä
+		subb A,#0BH ;åˆ¤æ–·æ˜¯ä¸æ˜¯1(11è™Ÿ)æŒ‰éµ
 		JZ change
 
 		RET 
 
 		change:
-			mov A,R2  ;§âºâ¥Xªº¦ì¸m¥á¶iindex¸Ì
-			movc A,@A+DPTR ;¨ú¥X¹ïÀ³ªº¼Æ¦r
+			mov A,R2  ;æŠŠç®—å‡ºçš„ä½ç½®ä¸Ÿé€²indexè£¡
+			movc A,@A+DPTR ;å–å‡ºå°æ‡‰çš„æ•¸å­—
 			MOV P1,A			;show the number
 			RET			
 			

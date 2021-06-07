@@ -1,9 +1,9 @@
-ORG	0H			;¨t²Î¶}¾÷ªº°õ¦æ¦ì§}¬°0
+ORG	0H			;ç³»çµ±é–‹æ©Ÿçš„åŸ·è¡Œä½å€ç‚º0
 		JMP	INIT
 LENGTH	EQU	40H			;length
 ARRAY	EQU	41H 
 		ORG	30H          
-INIT:           			;¶ñ¤J°_©lªº¸ê®Æ
+INIT:           			;å¡«å…¥èµ·å§‹çš„è³‡æ–™
 		MOV 40H, #9;
 		MOV 41H, #121;
 		MOV 42H, #134;
@@ -14,12 +14,12 @@ INIT:           			;¶ñ¤J°_©lªº¸ê®Æ
 		MOV 47H, #158;
 		MOV 48H, #158;
 		MOV 49H, #160;
-MAIN:               	;¥Dµ{¦¡°_©l¦ì§}
+MAIN:               	;ä¸»ç¨‹å¼èµ·å§‹ä½å€
 		MOV R7, LENGTH
 		MOV R6, #ARRAY
 		CALL MEDIAN
-		JMP	$			;¦b¦¹ÀË¬d¦^¶Ç­È R5
-MEDIAN:					;°Æµ{¦¡¦b¦¹
+		JMP	$			;åœ¨æ­¤æª¢æŸ¥å›žå‚³å€¼ R5
+MEDIAN:					;å‰¯ç¨‹å¼åœ¨æ­¤
 		MOV A,R7			
 		MOV R3,A
 		MOV B,R6
@@ -28,44 +28,44 @@ MEDIAN:					;°Æµ{¦¡¦b¦¹
 NEXT:
 		MOV A,R7
 		MOV B, #2
-		DIV AB		;ºâ¤¤¶¡index
+		DIV AB		;ç®—ä¸­é–“index
 		MOV R0, B
-		CJNE R0,#0,ODD  ;¦pªG¾l¼Æ¤£µ¥©ó0°µODD
+		CJNE R0,#0,ODD  ;å¦‚æžœé¤˜æ•¸ä¸ç­‰æ–¼0åšODD
 		EVEN:
-			ADD A,R6		;ºâ¤¤¶¡index
+			ADD A,R6		;ç®—ä¸­é–“index
 			MOV R0,A		
-			MOV 55H,@R0	;¨úR0­È©ñ55H
+			MOV 55H,@R0	;å–R0å€¼æ”¾55H
 			MOV R0,55H
-			DEC A		;ºâ¤¤¶¡¥t¤@­Óªºindex
+			DEC A		;ç®—ä¸­é–“å¦ä¸€å€‹çš„index
 			MOV R0,A
-			MOV A,@R0 	;¨úR0­È©ñ55H
-			ADD A,R0		;¬Û¥[
+			MOV A,@R0 	;å–R0å€¼æ”¾55H
+			ADD A,R0		;ç›¸åŠ 
 			MOV B, #2		
-			DIV AB		;°£¥H2
-			MOV R5,A		;¤¤¦ì¼Æ©ñ¨ìR5
+			DIV AB		;é™¤ä»¥2
+			MOV R5,A		;ä¸­ä½æ•¸æ”¾åˆ°R5
 			RET
 		ODD:
-			ADD A,R6		;ºâ¤¤¶¡index
+			ADD A,R6		;ç®—ä¸­é–“index
 			MOV R0,A
-			MOV 55H,@R0  ;¨úR0­È©ñ55H
-			MOV R5,55H	;¤¤¦ì¼Æ©ñ¨ìR5
+			MOV 55H,@R0  ;å–R0å€¼æ”¾55H
+			MOV R5,55H	;ä¸­ä½æ•¸æ”¾åˆ°R5
 			RET
 CHECK:
 		DJNZ R3,CHECKLOOP
 		JMP NEXT
 CHECKLOOP:
-		MOV A,R0 ; A¦s²{¦bindex
+		MOV A,R0 ; Aå­˜ç¾åœ¨index
 		MOV R1,A  
-		INC R1       ;¤U¤@­Óindex
-		MOV A,@R1 ;§âR1­È©ñ¨ìACC
-		MOV 59H,@R0 ;§âR0­È©ñ¨ì59H
-		CJNE A,59H,0  ;¤ñ¤j¤p
-		CPL C      ;ºX¸¹¨ú¸É¼ÆÅý«á­±ªº¼Æ¦r¤j©óµ¥©ó«e­±ªº¼Æ¦r®É
-				;ºû«ù1
+		INC R1       ;ä¸‹ä¸€å€‹index
+		MOV A,@R1 ;æŠŠR1å€¼æ”¾åˆ°ACC
+		MOV 59H,@R0 ;æŠŠR0å€¼æ”¾åˆ°59H
+		CJNE A,59H,0  ;æ¯”å¤§å°
+		CPL C      ;æ——è™Ÿå–è£œæ•¸è®“å¾Œé¢çš„æ•¸å­—å¤§æ–¼ç­‰æ–¼å‰é¢çš„æ•¸å­—æ™‚
+				;ç¶­æŒ1
 		MOV P1.0,C 
-		INC R0 ;²{¦bindex¥[¤@
-		JB P1.0,CHECK ;«á­±¤j©ó«e­± ¶i¦æ¤U¤@¦¸ÀË¬d
-		;§_«h³]R5¬°0
+		INC R0 ;ç¾åœ¨indexåŠ ä¸€
+		JB P1.0,CHECK ;å¾Œé¢å¤§æ–¼å‰é¢ é€²è¡Œä¸‹ä¸€æ¬¡æª¢æŸ¥
+		;å¦å‰‡è¨­R5ç‚º0
 		MOV R5,#0
 		RET
 END

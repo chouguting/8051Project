@@ -3,59 +3,59 @@ MAIN:
 		mov P1,#0FFH
 	;=Mov DPL,#LOW(TABLE)+Mov DPH,#HIGH(TABLE)
 	LOOP:		
-		mov P2,P3 ;¼È¦sP3ªºvalue
-		mov  A,P2	;§âP3ªº­Èµ¹A
-		CLR C ;²M±¼carry
-		subb A,#0FEH ;§PÂ_¬O¤£¬O²Ä¤@­Ó«öÁä
-		JZ change  ;¬O´N¸õ
+		mov P2,P3 ;æš«å­˜P3çš„value
+		mov  A,P2	;æŠŠP3çš„å€¼çµ¦A
+		CLR C ;æ¸…æ‰carry
+		subb A,#0FEH ;åˆ¤æ–·æ˜¯ä¸æ˜¯ç¬¬ä¸€å€‹æŒ‰éµ
+		JZ change  ;æ˜¯å°±è·³
 
 		mov  A,P2
 		CLR C
-		subb A,#0FDH ;§PÂ_¬O¤£¬O²Ä¤G­Ó«öÁä
+		subb A,#0FDH ;åˆ¤æ–·æ˜¯ä¸æ˜¯ç¬¬äºŒå€‹æŒ‰éµ
 		JZ change
 		
 		mov  A,P2
              CLR C
-		subb A,#0FBH ;§PÂ_¬O¤£¬O²Ä¤T­Ó«öÁä
+		subb A,#0FBH ;åˆ¤æ–·æ˜¯ä¸æ˜¯ç¬¬ä¸‰å€‹æŒ‰éµ
 		JZ change
 
 		mov  A,P2
 		CLR C
-		subb A,#0F7H ;§PÂ_¬O¤£¬O²Ä¥|­Ó«öÁä
+		subb A,#0F7H ;åˆ¤æ–·æ˜¯ä¸æ˜¯ç¬¬å››å€‹æŒ‰éµ
 		JZ change
 
 		mov  A,P2
 		CLR C
-		subb A,#0EFH ;§PÂ_¬O¤£¬O²Ä¤­­Ó«öÁä
+		subb A,#0EFH ;åˆ¤æ–·æ˜¯ä¸æ˜¯ç¬¬äº”å€‹æŒ‰éµ
 		JZ change
 
 		mov  A,P2
 		CLR C
-		subb A,#0DFH ;§PÂ_¬O¤£¬O²Ä¤»­Ó«öÁä
+		subb A,#0DFH ;åˆ¤æ–·æ˜¯ä¸æ˜¯ç¬¬å…­å€‹æŒ‰éµ
 		JZ change
 
 		mov  A,P2
 		CLR C
-		subb A,#0BFH ;§PÂ_¬O¤£¬O²Ä¤C­Ó«öÁä
+		subb A,#0BFH ;åˆ¤æ–·æ˜¯ä¸æ˜¯ç¬¬ä¸ƒå€‹æŒ‰éµ
 		JZ change
 
 		mov  A,P2
 		CLR C
-		subb A,#7FH ;§PÂ_¬O¤£¬O²Ä¤K­Ó«öÁä
+		subb A,#7FH ;åˆ¤æ–·æ˜¯ä¸æ˜¯ç¬¬å…«å€‹æŒ‰éµ
 		JZ change
-		jmp LOOP ;­«½Æ°õ¦æ§PÂ_µ{¦¡
+		jmp LOOP ;é‡è¤‡åŸ·è¡Œåˆ¤æ–·ç¨‹å¼
 
 		change:
 			mov A,P2
 			mov R0,#0
-			innerLoop:   ;§PÂ_­ş­Óbit¬°0
+			innerLoop:   ;åˆ¤æ–·å“ªå€‹bitç‚º0
 				RRC A
 				INC R0
 				JC innerLoop
-			MOV A,R0  ;§âºâ¥Xªº¦ì¸m¥á¶iindex¸Ì
-			movc A,@A+DPTR ;¨ú¥X¹ïÀ³ªº¼Æ¦r
+			MOV A,R0  ;æŠŠç®—å‡ºçš„ä½ç½®ä¸Ÿé€²indexè£¡
+			movc A,@A+DPTR ;å–å‡ºå°æ‡‰çš„æ•¸å­—
 			MOV P1,A			;show the number
-			jmp LOOP			 ;­«½Æ°õ¦æ§PÂ_µ{¦¡
+			jmp LOOP			 ;é‡è¤‡åŸ·è¡Œåˆ¤æ–·ç¨‹å¼
 			
 dofly_table:
 		db C0H
